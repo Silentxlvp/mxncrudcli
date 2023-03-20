@@ -6,7 +6,7 @@ import router from "./router.js";
 // import titlesStore from '../src/Store/titles'
 const app = createApp(App);
 
-app.use(createPinia);
+app.use(createPinia());
 app.use(router);
 app.mount("#app");
 // app.use(navbar);

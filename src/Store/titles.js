@@ -13,7 +13,7 @@ export const titlesStore = defineStore("titles", {
   getters: { getPosttt: (state) => state.posttt },
   actions: {
     async savePost(payload) {
-      this.posttt = { ...payload };
+      this.posttt = await { ...payload };
     },
   },
 });

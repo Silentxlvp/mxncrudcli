@@ -21,7 +21,7 @@ html {
   display: grid;
   justify-content: center;
   background-color: #fbfbfb;
-  color: #323232;
+  color: #323231;
   margin: 0px;
 }
 

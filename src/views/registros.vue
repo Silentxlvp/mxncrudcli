@@ -7,10 +7,10 @@
     <!-- aqui tem um "$event =>"-->
     <label for="título">Insira o título</label>
     <input
-    placeholder="insira o título"
-    v-model="título"
-    id="título"
-    type="text"
+      placeholder="insira o título"
+      v-model="título"
+      id="título"
+      type="text"
     />
     <hr />
     <label for="nota">Insira a nota do título</label>
@@ -18,15 +18,15 @@
     <hr />
     <label for="sin">Insira a sinopse do título</label>
     <input
-    placeholder="insira a sinopse"
-    v-model="sinopse"
-    id="sinopse"
-    type="text"
+      placeholder="insira a sinopse"
+      v-model="sinopse"
+      id="sinopse"
+      type="text"
     />
-    
+
     <button id="buttonlk">
-        <RouterLink to="/registrados" class="link">REGISTRADOS</RouterLink>
-      </button>
+      <RouterLink to="/registrados" class="link">REGISTRADOS</RouterLink>
+    </button>
     <input type="submit" class="botao" />
   </form>
 </template>
