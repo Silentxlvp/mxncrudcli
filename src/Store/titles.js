@@ -1,19 +1,16 @@
 import { defineStore } from "pinia";
-// import posttt from '../views/registros'
 export const titlesStore = defineStore("titles", {
   state: () => ({
-    posttt: [
-      {
-        título: "",
-        nota: "",
-        sinopse: "",
-      },
-    ],
+    posttt: [],
   }),
   getters: { getPosttt: (state) => state.posttt },
   actions: {
     async savePost(payload) {
-      this.posttt = await { ...payload };
+      if (this.posttt.length > 0) {
+        this.posttt.push({ ...payload });
+      } else {
+        this.posttt = { ...payload };
+      }
     },
   },
 });

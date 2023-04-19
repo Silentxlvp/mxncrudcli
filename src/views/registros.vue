@@ -5,11 +5,11 @@
   </div>
   <form @submit="addPost()" class="registros">
     <!-- aqui tem um "$event =>"-->
-    <label for="título">Insira o título</label>
+    <label for="titulo">Insira o título</label>
     <input
       placeholder="insira o título"
-      v-model="título"
-      id="título"
+      v-model="titulo"
+      id="titulo"
       type="text"
     />
     <hr />
@@ -23,10 +23,6 @@
       id="sinopse"
       type="text"
     />
-
-    <button id="buttonlk">
-      <RouterLink to="/registrados" class="link">REGISTRADOS</RouterLink>
-    </button>
     <input type="submit" class="botao" />
   </form>
 </template>
@@ -50,7 +46,7 @@ export default defineComponent({
 
   watch: {
     título() {
-      console.log(this.título);
+      console.log(this.titulo);
     },
     nota() {
       console.log(this.nota);
@@ -83,7 +79,7 @@ export default defineComponent({
   text-align: left;
 }
 
-h1 {
+.h1 {
   font-size: 43px;
   color: #204bfc;
   margin-top: 110px;

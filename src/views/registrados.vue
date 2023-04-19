@@ -1,63 +1,96 @@
 <template>
-  <div id="registrados">
-    <nav>
-      <button id="buttonlk">
-        <RouterLink to="/" class="link">REGISTRAR</RouterLink>
-      </button>
-    </nav>
-    <h1>registrados</h1>
-    <!-- <div>{{ navbar }}</div> -->
-    <button class="btoncrud" type="button" onclick="console.log('oi')">
-      Excluir
-    </button>
-    <button class="btoncrud" onclick="console.log('oi')">Atualizar</button>
-    <button class="btoncrud" onclick="console.log('oi')">Editar</button>
-
-    <!-- <div class="lista">
-      
-      <div v-for="item in titlesStore" :key="item.id"></div> 
-    </div> -->
-  </div>
-  <div class="panel">registrados recentemente</div>
+  <main class="cards">
+    <section class="card roxo" v-for="item in getPosttt" :key="item.titulo">
+      <h3>Titulo:{{ item.titulo }}</h3>
+      <span>Sinopse: {{ item.sinopse }}</span>
+      <button>Nota:{{ item.nota }}</button>
+    </section>
+  </main>
 </template>
 
 <script>
-// import navbar from "../components/NavBar.vue";
+import { mapState } from "pinia";
+import { defineComponent, ref } from "vue";
+import { titlesStore } from "../Store/titles";
+export default defineComponent({
+  setup() {
+    const posttt = ref({});
+    return {
+      posttt,
+    };
+  },
+  computed: {
+    ...mapState(titlesStore, {
+      getPosttt: "getPosttt",
+    }),
+  },
+  mounted() {
+    console.log(this.getPosttt)
+    this.posttt = this.getPosttt;
+  },
+});
 </script>
 
 <style>
-#registrados {
-  margin-left: 400px;
+main.cards {
+  display: flex;
+  padding: 32px;
 }
 
-#buttonlk {
-  border-radius: 3px;
-  border: none;
-  margin-top: 50px;
-  width: 140px;
-  height: 50px;
+main.cards section.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: white;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  max-height: 468px;
+  margin-left: 32px;
 }
 
-.link {
-  margin-top: 70px;
-  text-decoration: none;
-  list-style: none;
-  list-style-type: none;
+main.cards section.card h3 {
+  font-size: 100%;
+  margin: 16px 0;
+  max-width: 240px;
 }
 
-.btoncrud {
-  margin-left: 100px;
-  width: 100px;
-  height: 50px;
-  background-color: rgb(199, 242, 250);
-  border-color: rgb(4, 0, 255);
+main.cards section.card span {
+  font-weight: 300;
+  max-width: 240px;
+  font-size: 80%;
+  margin-bottom: 16px;
 }
 
-.panel {
-  width: 250px;
-  height: 800px;
-  margin-right: 1050px;
-  margin-top: 0px;
-  background-color: rgb(233, 230, 227);
+main.cards section.card button {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  border-radius: 32px;
+  border: 0;
+  cursor: pointer;
+  font-size: 80%;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 16px 0;
+}
+
+main.cards section.card.roxo button {
+  background: linear-gradient(to right, #9f66ff, #dfcbff);
+}
+main.cards section.card.azul button {
+  background: linear-gradient(to right, #3e8aff, #bbdeff);
+}
+main.cards section.card.rosa button {
+  background: linear-gradient(to right, #fe5f8f, #ffc7d9);
+}
+
+main.cards section.card.roxo {
+  box-shadow: 20px 20px 50px -30px #dbc4ff;
+}
+main.cards section.card.azul {
+  box-shadow: 20px 20px 50px -30px #afd6ff;
+}
+main.cards section.card.rosa {
+  box-shadow: 20px 20px 50px -30px #ffc1d5;
 }
 </style>
