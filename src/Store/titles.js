@@ -9,7 +9,7 @@ export const titlesStore = defineStore("titles", {
       if (this.posttt.length > 0) {
         this.posttt.push({ ...payload });
       } else {
-        this.posttt = { ...payload };
+        this.posttt = [{ ...payload }];
       }
     },
   },

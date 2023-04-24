@@ -1,4 +1,19 @@
 <template>
+  <nav>
+    <div class="logo">RsF</div>
+    <div class="links">
+      <ul class="nav-itens">
+        <li><a>Home</a></li>
+        <li><a>About us</a></li>
+        <li><a>Preços</a></li>
+        <li><a>Suporte</a></li>
+      </ul>
+    </div>
+    <div class="btn">
+      <button class="login">Login</button>
+      <RouterLink to="/" class="cadastro">Registrar</RouterLink>
+    </div>
+  </nav>
   <main class="cards">
     <section class="card roxo" v-for="item in getPosttt" :key="item.titulo">
       <h3>Titulo:{{ item.titulo }}</h3>
@@ -25,13 +40,67 @@ export default defineComponent({
     }),
   },
   mounted() {
-    console.log(this.getPosttt)
+    console.log(this.getPosttt);
     this.posttt = this.getPosttt;
   },
 });
 </script>
 
 <style>
+nav {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+  margin-top: 20px;
+  align-items: center;
+  color: #202020;
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.nav-itens {
+  list-style: none;
+  display: flex;
+}
+
+.nav-itens > li > a {
+  padding-left: 20px;
+  color: #202020;
+  text-decoration: none;
+}
+
+.login {
+  padding: 10px 40px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  color: #202020;
+  background-color: #fff;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+}
+
+.cadastro {
+  padding: 10px 40px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #202020;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: 1s background;
+  text-decoration: none;
+}
+
+.cadastro:hover {
+  background-color: #3d3d3d;
+  transition: 1s background;
+}
+
 main.cards {
   display: flex;
   padding: 32px;

@@ -33,9 +33,15 @@ import { defineComponent, ref } from "vue";
 import { titlesStore } from "../Store/titles";
 export default defineComponent({
   setup() {
+    const titulo = ref("");
+    const sinopse = ref("");
+    const nota = ref("");
     const posttt = ref({});
     return {
       posttt,
+      titulo,
+      sinopse,
+      nota,
     };
   },
   computed: {
@@ -60,15 +66,18 @@ export default defineComponent({
       savePost: "savePost",
     }),
     addPost() {
-      this.savePost({
-        titulo: this.titulo,
-        nota: this.nota,
-        sinopse: this.sinopse,
-      });
+      if (this.titulo && this.nota && this.sinopse) {
+        console.log("entrou");
+        this.savePost({
+          titulo: this.titulo,
+          nota: this.nota,
+          sinopse: this.sinopse,
+        });
 
-      this.$router.push({
-        name: "registrados",
-      });
+        this.$router.push({
+          name: "registrados",
+        });
+      }
     },
   },
 });
