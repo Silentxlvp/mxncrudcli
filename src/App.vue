@@ -12,8 +12,10 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
 html {
-  font-family: Verdana, Tahoma, sans-serif;
+  font-family: 'Poppins', sans-serif;
   background-color: #fdfbfd;
 }
 

@@ -1,5 +1,4 @@
 <template>
-  <!-- <span>{{ titlesStore }}</span> -->
   <div class="header">
     <h1 class="h1">REGISTROS</h1>
   </div>
@@ -84,13 +83,16 @@ export default defineComponent({
 </script>
 
 <style>
+
+
 .header {
   text-align: left;
+  font-family: popins , sans-serif;
 }
 
 .h1 {
   font-size: 43px;
-  color: #204bfc;
+  color: #202020;
   margin-top: 110px;
 }
 
