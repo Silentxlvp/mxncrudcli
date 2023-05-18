@@ -15,7 +15,7 @@
     <label for="nota">Insira a nota do título</label>
     <input placeholder="insira a nota" v-model="nota" id="nota" type="text" />
     <hr />
-    <label for="sin">Insira a sinopse do título</label>
+    <label for="sin">Insira a sinopse</label>
     <input
       placeholder="insira a sinopse"
       v-model="sinopse"
@@ -83,11 +83,9 @@ export default defineComponent({
 </script>
 
 <style>
-
-
 .header {
   text-align: left;
-  font-family: popins , sans-serif;
+  font-family: popins, sans-serif;
 }
 
 .h1 {
