@@ -4,7 +4,7 @@
 
     <div v-if="!isEditing">
       <input type="text" v-model="todo" />
-      <input type="submit" value="Add" @click="storeTodo" />
+      <input type="submit" value="Add" @click="todoStore" />
     </div>
     <div v-else>
       <input type="text" v-model="todo" />
@@ -22,15 +22,17 @@
 </template>
 
 <script>
-import { mapState } from "pinia";
+import { mapActions, mapState } from "pinia";
 import { defineComponent, ref } from "vue";
 import { todoStore } from "../Store/titles";
 
 export default defineComponent({
   setup() {
+    var isEditing = false;
     const todo = ref("");
     const todos = ref({});
     return {
+      isEditing,
       todos,
       todo,
     };
@@ -40,47 +42,49 @@ export default defineComponent({
       getTodos: "getTodos",
     }),
   },
+  methods: {
+    ...mapActions(todoStore, {
+      savePost: "savePost",
+    }),
+    addPost() {
+      if (this.titulo && this.nota && this.sinopse) {
+        console.log("entrou");
+        this.savePost({
+          titulo: this.titulo,
+          nota: this.nota,
+          sinopse: this.sinopse,
+        });
+      }
+    },
+
+
+    todoStore() {
+      this.todos.push(this.todo);
+      this.todo = "";
+    },
+
+    removeTodo(index) {
+      this.todos.splice(index, 1);
+    },
+
+    updateTodo() {
+      this.todos.splice(this.selectedIndex, 1, this.todo);
+      this.todo = "";
+      this.isEditing = false;
+    },
+
+    editTodo(index, todo) {
+      this.isEditing = true;
+      this.todo = todo;
+      this.selectedIndex = index;
+    },
+  },
+
   mounted() {
     console.log(this.getTodos);
     this.todos = this.getTodos;
   },
 });
-
-// setup(){
-//   el: "#app",
-
-//   data: function() {
-// return {
-//     isEditing: false,
-//     todo: "",
-//     todos: [],
-//     selectedTodo: null,
-//   };
-// },
-
-//   computed: {
-//     storeTodo() {
-//       this.todos.push(this.todo);
-//       this.todo = "";
-//     },
-
-//     removeTodo(index) {
-//       this.todos.splice(index, 1);
-//     },
-
-//     updateTodo() {
-//       this.todos.splice(this.selectedIndex, 1, this.todo);
-//       this.todo = "";
-//       this.isEditing = false;
-//     },
-
-//     editTodo(index, todo) {
-//       this.isEditing = true;
-//       this.todo = todo;
-//       this.selectedIndex = index;
-//     },
-//   },
-// });
 </script>
 
 <style>

@@ -15,34 +15,21 @@ export const titlesStore = defineStore("titles", {
   },
 });
 
-export const todoStore = defineStore("todo", {
+export const todoStore = defineStore("tods", {
   state: () => ({
     isEditing: false,
-    todo: "",
     todos: [],
     selectedTodo: null,
   }),
   getters: { getTodos: (state) => state.todos },
   actions: {
-    todoStore() {
-      this.todos.push(this.todo);
-      this.todo = "";
-    },
-
-    removeTodo(index) {
-      this.todos.splice(index, 1);
-    },
-
-    updateTodo() {
-      this.todos.splice(this.selectedIndex, 1, this.todo);
-      this.todo = "";
-      this.isEditing = false;
-    },
-
-    editTodo(index, todo) {
-      this.isEditing = true;
-      this.todo = todo;
-      this.selectedIndex = index;
+    async savePost(payload) {
+      if (this.todos.length > 0) {
+        this.todos.push({ ...payload });
+      } else {
+        this.todos = [{ ...payload }];
+      }
     },
   },
+  
 });
