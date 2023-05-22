@@ -12,7 +12,7 @@
     </div>
 
     <ol>
-      <li v-for="(todo, index) in todos" :key="(todo, index).todos">
+      <li class="list" v-for="(todo, index) in todos" :key="(todo, index).todos">
         {{ todo }}
         <button @click="editTodo(index, todo)">Edit</button>
         <button @click="removeTodo(index)">Delete</button>
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "pinia";
+import { mapState } from "pinia";
 import { defineComponent, ref } from "vue";
 import { todoStore } from "../Store/titles";
 
@@ -43,22 +43,7 @@ export default defineComponent({
     }),
   },
   methods: {
-    ...mapActions(todoStore, {
-      savePost: "savePost",
-    }),
-    addPost() {
-      if (this.titulo && this.nota && this.sinopse) {
-        console.log("entrou");
-        this.savePost({
-          titulo: this.titulo,
-          nota: this.nota,
-          sinopse: this.sinopse,
-        });
-      }
-    },
-
-
-    todoStore() {
+     todoStore() {
       this.todos.push(this.todo);
       this.todo = "";
     },
@@ -94,5 +79,6 @@ export default defineComponent({
 }
 h1 {
   padding-top: 40px;
+  color: #202020;
 }
 </style>
