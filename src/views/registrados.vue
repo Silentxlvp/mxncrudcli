@@ -5,14 +5,15 @@
       <ul class="nav-itens">
         <li><a>Home</a></li>
         <li><a>About us</a></li>
-        <li><a>Preços</a></li>
-        <li><a>Suporte</a></li>
+        <li><a>Prices</a></li>
+        <li><a>Suport</a></li>
       </ul>
     </div>
-    <div class="btn">
-      <button class="login">Login</button>
+    <div class="o">
       <RouterLink to="/" class="cadastro">Registrar</RouterLink>
       <RouterLink to="/todolist" class="o">todolist</RouterLink>
+      <RouterLink to="/prices">prices</RouterLink>
+      <button class="login">Login</button>
     </div>
   </nav>
   <main class="cards">
@@ -88,6 +89,7 @@ nav {
   background-color: #fff;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  margin-left: 15px;
 }
 
 .cadastro {
@@ -168,5 +170,23 @@ main.cards section.card.azul {
 }
 main.cards section.card.rosa {
   box-shadow: 20px 20px 50px -30px #ffc1d5;
+}
+
+.o {
+  margin-left: 15px;
+  text-decoration: none;
+  padding: 10px 40px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #202020;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: 1s background;
+}
+.o:hover {
+  background-color: #3d3d3d;
+  transition: 1s background;
 }
 </style>

@@ -4,18 +4,22 @@
 
     <div v-if="!isEditing">
       <input type="text" v-model="todo" />
-      <input type="submit" value="Add" @click="todoStore" />
+      <input class="btn" type="submit" value="Add" @click="todoStore" />
     </div>
     <div v-else>
-      <input type="text" v-model="todo" />
-      <input type="submit" value="Update" @click="updateTodo" />
+      <input class="btn" type="text" v-model="todo" />
+      <input class="btn" type="submit" value="Update" @click="updateTodo" />
     </div>
 
     <ol>
-      <li class="list" v-for="(todo, index) in todos" :key="(todo, index).todos">
+      <li
+        class="list"
+        v-for="(todo, index) in todos"
+        :key="(todo, index).todos"
+      >
         {{ todo }}
-        <button @click="editTodo(index, todo)">Edit</button>
-        <button @click="removeTodo(index)">Delete</button>
+        <button class="btn" @click="editTodo(index, todo)">Edit</button>
+        <button class="btn" @click="removeTodo(index)">Delete</button>
       </li>
     </ol>
   </div>
@@ -43,7 +47,7 @@ export default defineComponent({
     }),
   },
   methods: {
-     todoStore() {
+    todoStore() {
       this.todos.push(this.todo);
       this.todo = "";
     },
@@ -77,8 +81,38 @@ export default defineComponent({
   max-width: 960px;
   margin: 0 auto;
 }
-h1 {
-  padding-top: 40px;
+nav {
+  display: flex;
+  justify-content: space-around;
+  font-family: "Poppins", sans-serif;
+  margin-top: 20px;
+  align-items: center;
   color: #202020;
 }
+
+.btn {
+  width: 140px;
+  height: 45px;
+  font-family: "Roboto", sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #2ee59d;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px); 
+ }
 </style>

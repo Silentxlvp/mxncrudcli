@@ -105,8 +105,9 @@ export default defineComponent({
 
 .registros input:hover,
 .registros input:focus {
-  border: 2px solid #204bfc;
+  border: 2px solid rgb(0, 0, 0);
   outline: none;
+  transition: 1s;
 }
 
 .botao {

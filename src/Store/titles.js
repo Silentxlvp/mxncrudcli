@@ -31,5 +31,4 @@ export const todoStore = defineStore("tods", {
       }
     },
   },
-  
 });
