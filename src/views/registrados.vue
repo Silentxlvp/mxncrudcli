@@ -5,14 +5,13 @@
       <ul class="nav-itens">
         <li><a>Home</a></li>
         <li><a>About us</a></li>
-        <li><a>Prices</a></li>
-        <li><a>Suport</a></li>
+        <li><RouterLink to="/prices">Prices</RouterLink></li>
+        <li><RouterLink to="/suport">Suport</RouterLink></li>
       </ul>
     </div>
     <div class="o">
       <RouterLink to="/" class="cadastro">Registrar</RouterLink>
       <RouterLink to="/todolist" class="o">todolist</RouterLink>
-      <RouterLink to="/prices">prices</RouterLink>
       <button class="login">Login</button>
     </div>
   </nav>
@@ -90,6 +89,10 @@ nav {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   margin-left: 15px;
+}
+
+.login:hover {
+  background-color: whitesmoke;
 }
 
 .cadastro {

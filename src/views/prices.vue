@@ -1,17 +1,17 @@
 <template>
   <div class="price-catalog">
-    <h1>Meu Catálogo de Preços</h1>
+    <h1>Catálogo de Preços</h1>
     <ul>
       <li v-for="product in products" :key="product.id">
         <div class="product">
           <div class="product-image">
-            <img :src="product.image" :alt="product.name" />
+            <p>Anunciar seu filme</p>
           </div>
           <div class="product-details">
             <h2>{{ product.name }}</h2>
             <p>{{ product.description }}</p>
             <div class="price">R$ {{ product.price }}</div>
-            <button @click="addToCar(product)">Adicionar ao carrinho</button>
+            <button class="btnprice" @click="addToCar(product)">Escolher pacote</button>
           </div>
         </div>
       </li>
@@ -85,15 +85,17 @@ export default {
   margin-bottom: 10px;
 }
 
-button {
+.btnprice {
   background-color: #007bff;
   color: #fff;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
+.btnprice:hover{
+  background-color: blue;
+} 
+
 </style>
