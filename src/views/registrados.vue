@@ -4,15 +4,15 @@
     <div class="links">
       <ul class="nav-itens">
         <li><a>Home</a></li>
-        <li><a>About us</a></li>
+        <li><RouterLink to="/aboutus">About us</RouterLink></li>
         <li><RouterLink to="/prices">Prices</RouterLink></li>
         <li><RouterLink to="/suport">Suport</RouterLink></li>
       </ul>
     </div>
-    <div class="o">
+    <div class="a">
       <RouterLink to="/" class="cadastro">Registrar</RouterLink>
       <RouterLink to="/todolist" class="o">todolist</RouterLink>
-      <button class="login">Login</button>
+      <RouterLink to="/login" class="login">Login</RouterLink>
     </div>
   </nav>
   <main class="cards">
@@ -89,6 +89,7 @@ nav {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   margin-left: 15px;
+  text-decoration: none;
 }
 
 .login:hover {
@@ -113,6 +114,41 @@ nav {
   transition: 1s background;
 }
 
+.o {
+  margin-left: 15px;
+  text-decoration: none;
+  padding: 10px 40px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #202020;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: 1s background;
+}
+.o:hover {
+  background-color: #3d3d3d;
+  transition: 1s background;
+}
+
+.a {
+  margin-left: 100px;
+  text-decoration: none;
+  padding: 25px 35px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #202020;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: 1s background;
+}
+.a:hover {
+  background-color: #3d3d3d;
+  transition: 1s background;
+}
 main.cards {
   display: flex;
   padding: 32px;
@@ -175,21 +211,4 @@ main.cards section.card.rosa {
   box-shadow: 20px 20px 50px -30px #ffc1d5;
 }
 
-.o {
-  margin-left: 15px;
-  text-decoration: none;
-  padding: 10px 40px;
-  font-size: 15px;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  background-color: #202020;
-  font-family: "Poppins", sans-serif;
-  cursor: pointer;
-  transition: 1s background;
-}
-.o:hover {
-  background-color: #3d3d3d;
-  transition: 1s background;
-}
 </style>

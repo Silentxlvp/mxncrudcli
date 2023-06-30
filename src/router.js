@@ -5,6 +5,8 @@ import registros from "./views/registros.vue";
 import suport from "./views/suport.vue";
 import todolist from "./views/todolist.vue";
 import spc from "./views/SuportCongrats.vue";
+import aboutus from "./views/aboutus.vue";
+import lgn from "./views/login.vue";
 
 const routes = [
   {
@@ -37,6 +39,16 @@ const routes = [
     path: "/congrats",
     name: "congrats",
     component: spc,
+  },
+  {
+    path: "/aboutus",
+    name: "aboutus",
+    component: aboutus,
+  },
+  {
+    path: "/login",
+    name: "login",
+    component: lgn,
   },
 ];
 const router = createRouter({ history: createWebHistory(), routes });

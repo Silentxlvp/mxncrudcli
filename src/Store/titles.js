@@ -32,3 +32,26 @@ export const todoStore = defineStore("tods", {
     },
   },
 });
+
+export const useLoginStore = defineStore('login', {
+  state: () => ({
+    loggedIn: false,
+    user: null,
+    username: ''
+  }),
+  actions: {
+    async login(username) {
+      try {
+        this.loggedIn = true;
+        this.user = { username }; // Substitua { username } pelos dados reais do usuário
+      } catch (error) {
+        // Lide com erros de autenticação, como credenciais inválidas, falha na conexão com a API, etc.
+        throw new Error('Falha no login');
+      }
+    },
+    logout() {
+      this.loggedIn = false;
+      this.user = null;
+    },
+  },
+});
