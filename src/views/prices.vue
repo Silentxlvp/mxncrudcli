@@ -29,7 +29,7 @@ export default {
           name: "Produto 1",
           description: "Descrição do Produto 1",
           price: 19.99,
-          image: "caminho/para/imagem1.jpg",
+          image: "",
         },
         {
           id: 2,
